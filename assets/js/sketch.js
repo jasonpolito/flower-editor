@@ -18,56 +18,57 @@ let fHeight, curve1, curve2;
 let b, bNum;
 
 function setup() {
-  canvas = createCanvas(windowWidth, windowHeight, WEBGL);
-  canvas.class("canvas");
+  canvas = createCanvas(windowWidth, windowHeight * 0.66, WEBGL);
+  canvas.class("canvas relative");
+  const uiContainer = "ui-container";
 
   colorMode(HSB, 360, 100, 100);
   angleMode(DEGREES);
   noStroke();
 
-  petalNum = createDiv();
+  petalNum = createDiv().parent(uiContainer);
   petalNum.class("valueDisplay");
-  pNumSlider = createSlider(1, 20, 5, 1);
+  pNumSlider = createSlider(1, 20, 5, 1).parent(uiContainer);
   pNumSlider.class("Slider");
 
-  diameter = createDiv();
+  diameter = createDiv().parent(uiContainer);
   diameter.class("valueDisplay");
-  diameterSlider = createSlider(20, 250, 200, 10);
+  diameterSlider = createSlider(20, 250, 200, 10).parent(uiContainer);
   diameterSlider.class("Slider");
 
-  pLength = createDiv();
+  pLength = createDiv().parent(uiContainer);
   pLength.class("valueDisplay");
-  pLenSlider = createSlider(0, 300, 60, 10);
+  pLenSlider = createSlider(0, 300, 60, 10).parent(uiContainer);
   pLenSlider.class("Slider");
 
-  pSharpness = createDiv();
+  pSharpness = createDiv().parent(uiContainer);
   pSharpness.class("valueDisplay");
-  pSharpSlider = createSlider(0.0, 10.0, 0.4, 0.1);
+  pSharpSlider = createSlider(0.0, 10.0, 0.4, 0.1).parent(uiContainer);
   pSharpSlider.class("Slider");
 
-  flowerHeight = createDiv();
+  flowerHeight = createDiv().parent(uiContainer);
   flowerHeight.class("valueDisplay");
-  heightSlider = createSlider(0, 600, 300, 10);
+  heightSlider = createSlider(0, 600, 300, 10).parent(uiContainer);
   heightSlider.class("Slider");
 
-  curvature1 = createDiv();
+  curvature1 = createDiv().parent(uiContainer);
   curvature1.class("valueDisplay");
-  curvatureSlider1 = createSlider(0.0, 4.0, 0.8, 0.1);
+  curvatureSlider1 = createSlider(0.0, 4.0, 0.8, 0.1).parent(uiContainer);
   curvatureSlider1.class("Slider");
 
-  curvature2 = createDiv();
+  curvature2 = createDiv().parent(uiContainer);
   curvature2.class("valueDisplay");
-  curvatureSlider2 = createSlider(0.0, 1.0, 0.2, 0.05);
+  curvatureSlider2 = createSlider(0.0, 1.0, 0.2, 0.05).parent(uiContainer);
   curvatureSlider2.class("Slider");
 
-  bump = createDiv();
+  bump = createDiv().parent(uiContainer);
   bump.class("valueDisplay");
-  bumpSlider = createSlider(0.0, 5.0, 2.5, 0.5);
+  bumpSlider = createSlider(0.0, 5.0, 2.5, 0.5).parent(uiContainer);
   bumpSlider.class("Slider");
 
-  bumpNum = createDiv();
+  bumpNum = createDiv().parent(uiContainer);
   bumpNum.class("valueDisplay");
-  bumpNumSlider = createSlider(0, 20, 10, 1);
+  bumpNumSlider = createSlider(0, 20, 10, 1).parent(uiContainer);
   bumpNumSlider.class("Slider");
 }
 
@@ -158,5 +159,5 @@ function bumpiness(A, r, f, angle) {
 
 //allows for dynamic change in canvas size. This allows user to change the size of the window in any way and the code will adjust for it.
 function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
+  resizeCanvas(windowWidth, windowHeight * 0.66);
 }
