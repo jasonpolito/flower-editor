@@ -18,7 +18,7 @@ let fHeight, curve1, curve2;
 let b, bNum;
 
 function setup() {
-  canvas = createCanvas(700, 700, WEBGL);
+  canvas = createCanvas(windowWidth, windowHeight, WEBGL);
   canvas.class("canvas");
 
   colorMode(HSB, 360, 100, 100);
@@ -154,4 +154,9 @@ function vShape(A, r, a, b, c) {
 
 function bumpiness(A, r, f, angle) {
   return 1 + A * pow(r, 2) * sin(f * angle);
+}
+
+//allows for dynamic change in canvas size. This allows user to change the size of the window in any way and the code will adjust for it.
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
 }
